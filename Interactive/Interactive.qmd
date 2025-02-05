@@ -1,0 +1,74 @@
+---
+title: "Banking Systems"
+subtitle: "Introduction to Data Base Management Using SQL"
+author: K R Hari Krishna
+date: "02/04/2025"
+execute: 
+  eval: true
+  echo: false
+  warning: false
+format:
+  closeread-html:
+    cr-style:
+      narrative-background-color-sidebar: White
+      narrative-text-color-sidebar: black
+      section-background-color: White
+      narrative-font-size: 12pt
+      narrative-font-family: Merriweather
+    grid: 
+      body-width: 800px
+    remove-header-space: true
+    debug-mode: false
+    embed-resources: true
+    css: CSSS.css
+---
+
+::::::::: cr-section
+::: {focus-on="cr-images"}
+# Banking Systems
+
+### Introduction to Data Base Management Using SQL
+
+<br> <br> MADE BY
+
+#### **K. R. Hari Krishna**
+:::
+
+In today's digital age, online banking and financial services have revolutionized the way individuals and businesses manage their finances. With the convenience of mobile apps and the security of complex database systems, online banking has become an **essential part of everyday life**.<br> <br> However, designing the database structure for these services requires careful planning and consideration. In this project, we will explore the process of designing **Entity-Relationship (ER) diagrams** for banking and financial services. By understanding the entities, attributes, and relationships involved, we can create a database structure that meets the needs of both Users and financial institutions.
+
+The online banking and financial services system does provide Users with a full set of conveniences such as mobile access to **account information, electronic transfers, and the security of personal information**, which can be achieved via this system. Multifactor Authorisation adds the additional level in the system as well. <br> <br> Seccurity is independent, and while can be normalised, it only has a one-one relation with the accounts so the same account key works here. This allows for more safety as the account is isolated and kept safer, while security still functions with the same account key. Normalisation here could be to add a unique primary key for security.[@cr-images]{pan-to="20%,-30%" scale-by="1.5"}
+
+It integrates easily with operations of accounts like deposits, withdrawals, transfers, and payments, plus supplies real-time account balances and transaction state descriptions. Transactions and Loans of the Users are mapped to the respective unique IDs and the status is mapped along side other traits like: recurring payments, status of the transaction/loan, mode of payment and more. [@cr-images]{pan-to="-25%,4%" scale-by="1.2"}
+
+Users are mapped to the accounts in an **one-many relationship** as they can have access to several types of accounts, such as savings, current, and credit accounts, directly on the same platform, therefore, Users have the option to get detailed information about accounts and transactions they have done. <br> <br>The information about the users is also stores, with KYC enabled to prevent sybil attacks in the whole system alongside mapping to a unique phone number and email-ID. [@cr-images]{pan-to="32%,32%" scale-by="1.5"}
+
+Over the course of the project, there was a need to check the linkages of relationships due to the nature of many linkages from accounts to other tables. For example, in the Transactions and Loans Tables, we see that the Foreign Keys for Sender and Receiver are not clearly mentioned, which required a unique name for each Foreign Key [@cr-relational]{pan-to="-5%,-5%" scale-by="1.5"}
+
+When viewing the EERD, we see that the **AccNo** variable is highlighted in blue to show it is being used by other tables as a foreign key. Similarly the **CID** is highlighted in green to show that it is a foreign key from table **Customer**. @cr-eerdfs
+
+::: {focus-on="cr-eerdo"}
+Focusing on the linkages here we see that most of them are not identifying as showin here, with the exception of relation **security** from the table **Account** to **Security**. These linkages also glow orange along with the primary key/foreign key to show the linkages between the tables properly.
+
+<br>List of linkages:
+
+1.  Customer to Account: Non-Identifying and One-Many
+2.  Account to Security: Identifying and One-One
+3.  Account to Transactions and Loans: Has two linkages from account, each for Sender and Receiver and is Non-Identifying and One-Many
+:::
+
+::: {#cr-images}
+![](https://raw.githubusercontent.com/HariKrishnaKR1/BankingSystems/refs/heads/main/ERD.png)
+:::
+
+::: {#cr-relational}
+![](https://raw.githubusercontent.com/HariKrishnaKR1/BankingSystems/refs/heads/main/RelSchema.png)
+:::
+
+::: {#cr-eerdo}
+![](https://raw.githubusercontent.com/HariKrishnaKR1/BankingSystems/refs/heads/main/EERD-o.png)
+:::
+
+::: {#cr-eerdfs}
+![](https://raw.githubusercontent.com/HariKrishnaKR1/BankingSystems/refs/heads/main/EERD-fs.png)
+:::
+:::::::::
